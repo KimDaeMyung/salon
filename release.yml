@@ -1,0 +1,69 @@
+version: '2'
+
+services:
+
+ redis:
+  container_name: redis
+  image: redis
+  restart: always
+
+ db:
+  container_name: db
+  image: mariadb
+  restart: always
+  volumes:
+  - ./data.sql:/docker-entrypoint-initdb.d/dump.sql
+  environment:
+   MYSQL_ROOT_PASSWORD: "park!981qq"
+   MYSQL_DATABASE: "designtopf_naver.com"
+   MYSQL_USER: "designtopf_naver.com"
+   MYSQL_PASSWORD: "designtopf"
+  ports:
+  - '3306:3306'
+
+ sql:
+  container_name: sql
+  image: rester/rester-sql
+  restart: always
+  links:
+  - redis:cache.rester.kr
+  - db:db.rester.kr
+  volumes:
+  - ./sql:/var/www/html/modules
+  - ./sql.cfg:/var/www/cfg:ro
+
+ api:
+  container_name: api
+  image: rester/rester-php
+  restart: always
+  links:
+  - sql:sql.rester.kr
+  volumes:
+  - ./api:/var/www/html/modules
+  - ./api.cfg:/var/www/cfg:ro
+  ports:
+  - '8082:80'
+
+ adm:
+  container_name: adm
+  image: rester/rester-frontend
+  restart: always
+  links:
+  - api:api.rester.kr
+  volumes:
+  - ./adm:/var/www/html
+  - ./adm.cfg:/var/www/cfg
+  ports:
+  - '8083:80'
+
+ frontend:
+  container_name: frontend
+  image: rester/rester-frontend
+  restart: always
+  links:
+  - api:api.rester.kr
+  volumes:
+  - ./front:/var/www/html
+  - ./front.cfg:/var/www/cfg
+  ports:
+  - '80:80'

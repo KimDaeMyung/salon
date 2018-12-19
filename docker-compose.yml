@@ -1,0 +1,77 @@
+version: '2'
+
+services:
+
+ redis:
+  container_name: redis
+  image: redis
+  restart: always
+
+ db:
+  container_name: db
+  image: mariadb
+  restart: always
+  ports:
+  - 3306:3306
+  volumes:
+  - //Github/com.designtopf/data.sql:/docker-entrypoint-initdb.d/dump.sql
+  environment:
+   MYSQL_ROOT_PASSWORD: "park!981qq"
+   MYSQL_DATABASE: "designtopf_naver.com"
+   MYSQL_USER: "designtopf_naver.com"
+   MYSQL_PASSWORD: "designtopf"
+
+ sql:
+  container_name: sql
+  image: rester/rester-sql
+  restart: always
+  links:
+  - redis:cache.rester.kr
+  - db:db.rester.kr
+  volumes:
+  - //Github/com.designtopf/sql:/var/www/html/modules
+  - //Github/com.designtopf/sql.cfg:/var/www/cfg:ro
+  - //Github/RESTer/rester-sql/src/rester:/var/www/html/rester
+  ports:
+  - '8081:80'
+
+ api:
+  container_name: api
+  image: rester/rester-php
+  restart: always
+  links:
+  - sql:sql.rester.kr
+  volumes:
+  - //Github/com.designtopf/api:/var/www/html/modules
+  - //Github/com.designtopf/api.cfg:/var/www/cfg:ro
+  - //Github/com.designtopf/api.files:/var/www/html/rester/files
+  - //Github/RESTer/rester-php/src/rester:/var/www/html/rester
+  ports:
+  - '8082:80'
+
+ adm:
+  container_name: adm
+  image: rester/rester-frontend
+  restart: always
+  links:
+  - api:api.rester.kr
+  volumes:
+  - //Github/com.designtopf/adm:/var/www/html
+  - //Github/com.designtopf/adm.cfg:/var/www/cfg
+  - //Github/RESTer/rester-frontend/lib:/var/www/lib
+  ports:
+  - '8083:80'
+
+ frontend:
+  container_name: frontend
+  image: rester/rester-frontend
+  restart: always
+  links:
+  - api:api.rester.kr
+  volumes:
+  - //Github/RESTer/rester-frontend/default.conf:/etc/nginx/sites-available/default.conf:ro
+  - //Github/com.designtopf/front:/var/www/html
+  - //Github/com.designtopf/front.cfg:/var/www/cfg
+  - //Github/RESTer/rester-frontend/lib:/var/www/lib
+  ports:
+  - '80:80'
