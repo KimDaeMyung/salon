@@ -2,7 +2,7 @@
 use rester\sql\rester;
 
 if(!defined('__RESTER__')) exit;
-
+rester::msg("path 값이 필요합니다.");
 $path = rester::param('path');
 $type = rester::param('type');
 if($path && $type)
