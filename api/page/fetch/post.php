@@ -1,7 +1,7 @@
 <?php if (!defined('__RESTER__')) exit;
 
-
-$tmp_host = 'http://kdml.iptime.org:8082';
+$http_host = $_SERVER['HTTP_HOST'];
+//$tmp_host = 'http://kdml.iptime.org:8082';
 
 rester::msg("Get page contents");
 
@@ -15,8 +15,8 @@ foreach (rester::sql('page','select',['path'=>$path,'type'=>'front']) as $item)
     switch ($item['pg_kind'])
     {
         case 'image':
-            $_item['href_image'] = $tmp_host.'/v1/page/image?no='.$item['pg_no'];
-            $_item['href_thumb'] = $tmp_host.'/v1/page/thumb?no='.$item['pg_no'];
+            $_f = new file($item['pg_content']);
+            $_item['href_image'] = $_f->get_cdn_path();
             break;
 
         case 'list':
@@ -31,8 +31,8 @@ foreach (rester::sql('page','select',['path'=>$path,'type'=>'front']) as $item)
                     $_vv = [];
                     if($vv['type']=='image')
                     {
-                        $_vv['href_thumb'] = $tmp_host.'/v1/page-admin/thumb?no='.$item['pg_no'].'&list_idx='.$list_idx.'&list_name='.$vv['name'];
-                        $_vv['href_image'] = $tmp_host.'/v1/page-admin/image?no='.$item['pg_no'].'&list_idx='.$list_idx.'&list_name='.$vv['name'];
+                        $_f = new file($v['image']);
+                        $_vv['href_image'] = $_f->get_cdn_path();
                     }
                     else
                     {
