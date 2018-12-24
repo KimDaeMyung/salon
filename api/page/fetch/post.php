@@ -12,7 +12,7 @@ $pages = [];
 foreach (rester::sql('page','select',['path'=>$path,'type'=>'front']) as $item)
 {
     $_item = [];
-    rester::msg($item['pg_kind']);
+
     echo $item['pg_kind'];
     switch ($item['pg_kind'])
     {
