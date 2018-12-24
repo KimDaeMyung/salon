@@ -26,15 +26,14 @@ else
 
     foreach ($file_list as $row)
     {
+        rester::msg("test5");
+
         if(!rester::sql('page','update_content',['no'=>$key,'content'=>json_encode($row)]))
         {
             rester::msg("test6");
             rester::failure();
-            rester::msg("데이터베이스 입력 실패");
-        }
-        else 
-        {
             rester::msg("test7");
+            rester::msg("데이터베이스 입력 실패");
         }
     }
 }
