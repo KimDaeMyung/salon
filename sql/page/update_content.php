@@ -4,7 +4,7 @@ if(!defined('__RESTER__')) exit;
 
 $key = rester::param('no');
 $content = addslashes(rester::param('content'));
-
+rester::msg($key."--".$list);
 $query = <<<SQL
     UPDATE `pages`
     SET `pg_content`='{$content}'
