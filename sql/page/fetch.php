@@ -1,8 +1,5 @@
 <?php if(!defined('__RESTER__')) exit;
 
-use rester\sql\db;
-use rester\sql\rester;
-
 $key = rester::param('no');
 if($key)
 {
