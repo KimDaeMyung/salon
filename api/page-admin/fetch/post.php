@@ -2,7 +2,7 @@
 
 $tmp_host = 'http://kdml.iptime.org:8082';
 
-rester::msg("Get page contents 1");
+rester::msg("Get page contents");
 
 $path = rester::param('path');
 $type = 'front';
