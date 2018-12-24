@@ -16,7 +16,7 @@ else
     rester::msg("test1");
     // 기존 파일 삭제
     $old = rester::sql('page','fetch',['no'=>$key]);
-    rester::msg("test2");
+    rester::msg($old);
     if($old['pg_content'])
     {
         rester::msg("test3");
