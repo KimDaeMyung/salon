@@ -1,4 +1,5 @@
-<?php 
+<?php use rester\sql\db;
+use rester\sql\rester;
 
 if(!defined('__RESTER__')) exit;
 
