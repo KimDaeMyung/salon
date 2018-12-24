@@ -1,6 +1,6 @@
 <?php if (!defined('__RESTER__')) exit;
 
-rester::msg("Get page contents");
+rester::msg("Get page contents 3");
 
 $path = rester::param('path');
 

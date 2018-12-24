@@ -3,7 +3,7 @@
 $http_host = $_SERVER['HTTP_HOST'];
 //$tmp_host = 'http://kdml.iptime.org:8082';
 
-rester::msg("Get page contents");
+rester::msg("Get page contents 2");
 
 $path = rester::param('path');
 
