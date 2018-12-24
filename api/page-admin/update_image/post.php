@@ -26,6 +26,8 @@ else
 
     foreach ($file_list as $row)
     {
+        rester::msg("test5");
+
         if(!rester::sql('page','update_content',['no'=>$key,'content'=>json_encode($row)]))
         {
             rester::msg("test6");
