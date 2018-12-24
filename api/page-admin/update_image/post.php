@@ -13,12 +13,16 @@ if(sizeof($file_list)==0)
 }
 else
 {
+    rester::msg("test1");
     // 기존 파일 삭제
     $old = rester::sql('page','fetch',['no'=>$key]);
+    rester::msg("test2");
     if($old['pg_content'])
     {
+        rester::msg("test3");
         $old_file = new file($old['pg_content']);
         $old_file->delete();
+        rester::msg("test4");
     }
 
     foreach ($file_list as $row)

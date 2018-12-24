@@ -1,6 +1,6 @@
 <?php if (!defined('__RESTER__')) exit;
 
-rester::msg("Image Upload 1");
+rester::msg("Image Upload");
 
 $key = rester::param('no');
 $old = rester::sql('page','fetch',['no'=>$key]);
