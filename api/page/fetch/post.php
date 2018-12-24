@@ -6,7 +6,7 @@ $http_host = $_SERVER['HTTP_HOST'];
 rester::msg("Get page contents");
 
 $path = rester::param('path');
-
+rester::msg("Get page contents2");
 // 페이지 내용 불러오기
 $pages = [];
 foreach (rester::sql('page','select',['path'=>$path,'type'=>'front']) as $item)
