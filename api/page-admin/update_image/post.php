@@ -20,7 +20,10 @@ else
         $old_file = new file($old['pg_content']);
         $old_file->delete();
     }
-    rester::msg("test5");
+
+
+
+
     foreach ($file_list as $row)
     {
         if(!rester::sql('page','update_content',['no'=>$key,'content'=>json_encode($row)]))
