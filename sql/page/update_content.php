@@ -1,11 +1,10 @@
-<?php use rester\sql\db;
-use rester\sql\rester;
+<?php 
 
 if(!defined('__RESTER__')) exit;
 
 $key = rester::param('no');
 $content = addslashes(rester::param('content'));
-rester::msg($key."--".$list);
+rester::msg($key."--".$content);
 $query = <<<SQL
     UPDATE `pages`
     SET `pg_content`='{$content}'
