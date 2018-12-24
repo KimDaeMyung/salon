@@ -4,7 +4,7 @@ rester::msg("Page content update (string)");
 
 $key = rester::param('no');
 $list = rester::param('string');
-rester::msg($key."-".$list);
+rester::msg($key."-".json_encode($list));
 if(!rester::sql('page','update_content',['no'=>$key,'content'=>json_encode($list)]))
 {
     rester::failure();

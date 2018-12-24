@@ -2,7 +2,6 @@
 if(!defined('__RESTER__')) exit;
 
 $key = rester::param('no');
-$key = 29;
 $content = addslashes(rester::param('content'));
 rester::msg($key."--".$content);
 $query = <<<SQL
