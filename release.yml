@@ -31,7 +31,8 @@ services:
   volumes:
   - ./sql:/var/www/html/modules
   - ./sql.cfg:/var/www/cfg:ro
-
+  ports:
+  - '8081:80'
 
  api:
   container_name: api
