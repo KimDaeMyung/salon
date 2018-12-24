@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- 호스트:                          kdml.iptime.org
+-- 호스트:                          192.168.99.100
 -- 서버 버전:                        10.3.11-MariaDB-1:10.3.11+maria~bionic - mariadb.org binary distribution
 -- 서버 OS:                        debian-linux-gnu
--- HeidiSQL 버전:                  9.5.0.5196
+-- HeidiSQL 버전:                  9.5.0.5339
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -52,9 +52,9 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `pg_update` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'page update time',
   PRIMARY KEY (`pg_no`),
   KEY `pg_path_pg_order` (`pg_path`,`pg_type`,`pg_archive`,`pg_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='페이지 내용';
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='페이지 내용';
 
--- 테이블 데이터 designtopf_naver.com.pages:~6 rows (대략적) 내보내기
+-- 테이블 데이터 designtopf_naver.com.pages:~24 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`pg_no`, `pg_path`, `pg_type`, `pg_archive`, `pg_order`, `pg_param`, `pg_kind`, `pg_config`, `pg_name`, `pg_display_name`, `pg_content`, `pg_datetime`, `pg_update`) VALUES
 	(1, 'index.html', 'front', 0, 0, '', 'list', '{\r\n  "desc": "왼쪽 아이콘을 클릭하여 드래그 하면 순서를 변경할 수 있습니다. 파일을 다시 업로드하면 변경됩니다.",\r\n  "content": [\r\n    {\r\n      "type": "image",\r\n      "name": "image"\r\n    },\r\n    {\r\n      "type": "string",\r\n      "name": "subject",\r\n      "size": "20"\r\n    },\r\n    {\r\n      "type": "string",\r\n      "name": "desc",\r\n      "size": "20"\r\n    }\r\n  ]\r\n}', 'main-visual-col1', '메인비쥬얼 (Col1)', '{"list":[{"subject":"3D \\ud504\\ub9b0\\ud130","desc":"desc","image":{"file_module":"page-admin","file_name":"12.jpg","file_local_name":"c18ca5e8c7999e7186f9_12.jpg","file_size":1607547,"file_type":"image\\/jpeg","file_datetime":"2018-12-09 13:24:07"}}]}', '2018-11-22 20:48:27', '2018-12-09 07:10:12'),
@@ -83,10 +83,7 @@ INSERT INTO `pages` (`pg_no`, `pg_path`, `pg_type`, `pg_archive`, `pg_order`, `p
 	(24, 'contact.html', 'front', 0, 0, '', 'text', '', 'address', 'Address', '<p>46958 부산광역시 사상구 백양대로 700번길 140 (괘법동, 신라대학교 마린바이오센터 309-1호)<br>#309-1 Marine-Bio Center, 140, Baegyang-daero 700beon-gil, Sasang-gu, Busan 46958, Korea<br><strong>T</strong> 051-939-4081 <strong>F</strong> 051-939-4082 <strong>M</strong> 010-7124-4081<br><strong>E</strong> <a href="mailto:designtopf@naver.com">designtopf@naver.com</a> <strong>H</strong> www.designtopf.com</p>', '2018-12-07 00:53:50', '2018-12-10 01:10:47'),
 	(25, 'contact.html', 'front', 0, 1, '', 'string', '{\r\n  "desc": "",\r\n  "content": [\r\n    {\r\n      "name": "key",\r\n      "desc":"Key"\r\n    }\r\n  ]\r\n}', 'map-key', '구글맵 키', '{"key":"AIzaSyD6tGaPaSuBFsIo_0A4vJEvq-89VQ-AbQc"}', '2018-12-07 00:53:50', '2018-12-10 04:35:10'),
 	(26, 'contact.html', 'front', 0, 2, '', 'string', '{\r\n  "desc": "",\r\n  "content": [\r\n    {\r\n      "name": "address",\r\n      "desc":"주소"\r\n    }\r\n  ]\r\n}', 'map-address', '구글맵 주소', '{"address":"\\ubd80\\uc0b0\\uad11\\uc5ed\\uc2dc \\uc0ac\\uc0c1\\uad6c \\ubc31\\uc591\\ub300\\ub85c 700\\ubc88\\uae38 140 (\\uad18\\ubc95\\ub3d9, \\uc2e0\\ub77c\\ub300\\ud559\\uad50 \\ub9c8\\ub9b0\\ubc14\\uc774\\uc624\\uc13c\\ud130 309-1\\ud638)"}', '2018-12-07 00:53:50', '2018-12-10 04:20:24'),
-	(27, 'contact.html', 'front', 0, 3, '', 'text', '', 'map-popup', '지도아이콘 클릭시 나타나는 팝업내용', '<p>마린바이오센터 309호입니다.</p>', '2018-12-07 00:53:50', '2018-12-10 04:51:59',
-	(28, 'index.html', 'front', 0, 13, '', 'string', '{\r\n  "desc": "",\r\n  "content": [\r\n    {\r\n      "name": "desc",\r\n      "desc":"설명"\r\n    },\r\n    {\r\n      "name": "tel",\r\n      "desc": "연락처"\r\n    },\r\n    {\r\n      "name": "email",\r\n      "desc": "이메일"\r\n    }\r\n  ]\r\n}\r\n', 'top-bar-info1', '탑바 정보 표시', '{"desc":"Lorem ipsum dolor sit amet consectetur","tel":"1 (800) 567 8765","email":"name@somemail.com"}', '2018-12-21 09:52:28', '2018-12-21 09:52:28'),
-	(29, 'index.html', 'front', 0, 14, '', 'string', '{\r\n  "desc": "",\r\n  "content": [\r\n    {\r\n      "name": "desc1",\r\n      "desc":"홍보멘트앞"\r\n    },\r\n    {\r\n      "name": "descswitch1",\r\n      "desc": "홍보멘트1"\r\n    },\r\n	{\r\n      "name": "descswitch2",\r\n      "desc": "홍보멘트2"\r\n    },\r\n	{\r\n      "name": "descswitch3",\r\n      "desc": "홍보멘트3"\r\n    },\r\n    {\r\n      "name": "desc2",\r\n      "desc": "홍보멘트뒤1"\r\n    },\r\n    {\r\n      "name": "desc3",\r\n      "desc": "홍보멘트뒤2"\r\n    },\r\n    {\r\n      "name": "desc4",\r\n      "desc": "홍보멘트뒤3"\r\n    }\r\n  ]\r\n}', 'main-adv-desc1', '홍보글1', '{"desc1":"i play with scissors with",\r\n"descswitch1":"Crew cut",\r\n"descswitch2":"Straight",\r\n"descswitch3":"Bowl cut",\r\n"desc2":"hairstyle\'s",\r\n"desc3":" WHAT WE DO ",\r\n"desc4":" Scroll Down"}', '2018-12-21 10:02:10', '2018-12-21 10:13:57'),
-	(30, 'index.html', 'front', 0, 15, '', 'string', '{\r\n  "desc": "",\r\n  "content": [\r\n    {\r\n      "name": "desc1",\r\n      "desc":"홍보설명1"\r\n    },\r\n    {\r\n      "name": "desc2",\r\n      "desc": "홍보설명2"\r\n    },\r\n	{\r\n      "name": "desc3",\r\n      "desc": "홍보설명3"\r\n    },\r\n	{\r\n      "name": "desc4",\r\n      "desc": "홍보설명4"\r\n    },\r\n	{\r\n      "name": "desc5",\r\n      "desc": "홍보멘트1"\r\n    },\r\n    {\r\n      "name": "desc6",\r\n      "desc": "홍보멘트2"\r\n    },\r\n    {\r\n      "name": "desc7",\r\n      "desc": "홍보멘트3"\r\n    }\r\n  ]\r\n}', 'main-adv-desc2', '홍보글2', '{"desc1":" The TrendSalon ",\r\n"desc2":"Curabitur fermentum a leo convallis consequat. Donec in ante ac orci pulvinar dignissim quis at massa. Suspendisse aliquet mauris quam, ac finibus magna facilisis ac. Sed quis neque sapien. Vivamus mauris est, ultrices bibendum ornare id, scelerisque ac leo. Suspendisse potenti. Quisque eget leo sit amet nulla aliquet molestie. ",\r\n"desc3":" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id augue vitae odio accumsan condimentum id in urna. Integer sit amet felis sit amet magna dignissim pharetra ut eget orci.",\r\n"desc4":"Nam a mi sed dui suscipit sodales. Cras ac rhoncus justo. In in justo et libero rhoncus dapibus vel eget leo. Sed ultricies lobortis egestas. Vivamus auctor faucibus massa in porta. Phasellus in sollicitudin enim.",\r\n"desc5":" Hair Styling ",\r\n"desc6":" Hair Cut ",\r\n"desc7":" Hair Styling "}', '2018-12-21 10:22:31', '2018-12-21 10:29:45');
+	(27, 'contact.html', 'front', 0, 3, '', 'text', '', 'map-popup', '지도아이콘 클릭시 나타나는 팝업내용', '<p>마린바이오센터 309호입니다.</p>', '2018-12-07 00:53:50', '2018-12-10 04:51:59');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
