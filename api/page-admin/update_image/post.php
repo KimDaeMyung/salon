@@ -1,6 +1,6 @@
 <?php if (!defined('__RESTER__')) exit;
 
-rester::msg("Image Upload");
+rester::msg("Image Upload 2");
 
 $key = rester::param('no');
 
