@@ -1,12 +1,12 @@
 <?php if (!defined('__RESTER__')) exit;
 
-$http_host ='http://kdml.iptime.org:8082';
+$http_host =$_SERVER['HTTP_HOST'];
 //$tmp_host = 'http://kdml.iptime.org:8082';
 rester::msg($_SERVER['HTTP_HOST']);
 rester::msg("Get page contents");
 
 $path = rester::param('path');
-rester::msg("test");
+rester::msg(rester::param('path'));
 // 페이지 내용 불러오기
 $pages = [];
 foreach (rester::sql('page','select',['path'=>$path,'type'=>'front']) as $item)
