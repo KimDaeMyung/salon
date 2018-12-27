@@ -1,7 +1,7 @@
 <?php if (!defined('__RESTER__')) exit;
 
 //$http_host = 'http://kdml.iptime.org:8082';
-$tmp_host = 'http://kdml.iptime.org:8082';
+$tmp_host = '192.168.0.11:8082';
 
 rester::msg("Get page contents");
 
