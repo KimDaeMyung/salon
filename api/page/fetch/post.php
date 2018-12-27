@@ -13,6 +13,7 @@ foreach (rester::sql('page','select',['path'=>$path,'type'=>'front']) as $item)
 {
     rester::msg($item['pg_kind']);
     $_item = [];
+    rester::msg("Get page contents");
     switch ($item['pg_kind'])
     {
         case 'image':
