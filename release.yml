@@ -23,7 +23,7 @@ services:
 
  sql:
   container_name: sql
-  image: rester2/rester-sql
+  image: rester/rester-sql
   restart: always
   links:
   - redis:cache.rester.kr
